@@ -1,6 +1,6 @@
 FROM debian:buster
 WORKDIR /app
-RUN apt-get update && apt-get install -y procps apache2-utils python3.7 python3-pip
+RUN apt-get update && apt-get install -y nginx bc procps apache2-utils python3.7 python3-pip
 RUN apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
 
 ADD python/requirements.txt /app/python/
@@ -10,5 +10,6 @@ ADD node/package.json node/package-lock.json /app/node/
 RUN cd node && npm install
 
 ADD . /app
+ADD nginx/default /etc/nginx/sites-enabled/
 
 CMD ["/app/entrypoint.sh"]

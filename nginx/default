@@ -1,0 +1,11 @@
+server {
+  listen 8000;
+  server_name _;
+  server_tokens off;
+  error_log off;
+  access_log off;
+  location / {
+    default_type application/json;
+    return 200 '{"hello":"world"}';
+  }
+}
