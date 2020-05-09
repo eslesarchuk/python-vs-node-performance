@@ -3,6 +3,12 @@
 Simple 'n' stupid comparison of Node vs Python3 performance with different frameworks doing the same job - responding with `{"hello":"world"}`.
 
 ```
+make
+```
+
+or, if gnu make is missing:
+
+```
 docker build -t python-vs-node . && docker run --rm -ti python-vs-node
 ```
 
